@@ -1,6 +1,2 @@
-require "netflixoriginals/version"
-
-module Netflixoriginals
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative "./netflixoriginals/version"
+require_relative "./netflixoriginals/cli"

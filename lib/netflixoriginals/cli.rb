@@ -1,28 +1,23 @@
 class Netflixoriginals::CLI
+
   def call
-    puts "Welcome to the Best Netflix Series According to Rotten Tomatoes."
-    Netflixoriginals::Scraper.scrape_index_page("http://editorial.rottentomatoes.com/guide/best-netflix-shows-and-movies-to-binge-watch-now/6/")
-    reviews
+    make_series
+    puts "Welcome to the List of Top Netflix Original Series According to Rotten Tomatoes."
+    start
     goodbye
   end
 
-  def reviews
-    input = nil
-    while input != "exit"
-      puts "Please enter the number of the Netflix Original Series for a quick review of the show or type exit to exit or type list to see the shows again:"
-      input = gets.strip.downcase
-      case input
-      when "1"
-        puts "More info on number 1"
-      when "2"
-        puts "More info on number 2"
-      when "list"
-        list_series
-      else
-        puts "Please try again. Incorrect entry."
-      end
+  def make_series
+    series_array = Netflixoriginals::Scraper.scrape_index_page("http://editorial.rottentomatoes.com/guide/best-netflix-shows-and-movies-to-binge-watch-now/6/")
+    Netflixoriginals::Series.create_from_collection(series_array)
+  end
+
+  def start
+    Netflixoriginals::Series.all.each do |series|
+      puts "#{series.rank}. #{series.title} #{series.year}"
     end
   end
+
 
   def goodbye
     puts "Thank you for visiting. Goodbye."

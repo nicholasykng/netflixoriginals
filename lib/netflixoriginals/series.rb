@@ -4,12 +4,22 @@ class Netflixoriginals::Series
 
   @@all = []
 
-  def initialize(movie_hash)
-    movie_hash.each {|attribute, value| self.send("#{attribute}=", value)}
+  def initialize(series_hash)
+    series_hash.each do |attribute, value|
+      self.send("#{attribute}=", value)
+    end
     @@all << self
+
   end
 
+  def self.create_from_collection(series_array)
+    series_array.each do |series_hash|
+      Netflixoriginals::Series.new(series_hash)
+      
+  end
+end
   def self.all
     @@all
   end
+
 end

@@ -1,11 +1,18 @@
 class Netflixoriginals::Scraper
 
-  def get_page
-    Nokogiri::HTML(open("https://uproxx.com/tv/best-netflix-original-series-to-watch-right-now-ranked/"))
-  end
-
-  def scrape_series_index
-    self.get_page.css("div.post-page")
-    binding.pry
+  def self.scrape_index_page(index_url)
+    index_page = Nokogiri::HTML(open(index_url))
+    index_page.css("div.articleContentBody").each do |series|
+      series_hash = {
+        title: series.css("div.article_movie_title h2 a").text,
+        year: series.css("span.subtle.start-year").text,
+        tomatometer: series.css("span.tMeterScore").text,
+        rank: series.css("div.countdown-index").text,
+        synopsis: series.css("div.info.synopsis").text,
+        starring: series.css("div.info.cast").text
+      }
+      binding.pry
+      Netflixoriginals::Series.new(series_hash)
+    end
   end
 end

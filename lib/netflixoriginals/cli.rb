@@ -1,18 +1,9 @@
 class Netflixoriginals::CLI
   def call
-    list_series
+    puts "Welcome to the Best Netflix Series According to Rotten Tomatoes."
+    Netflixoriginals::Scraper.scrape_index_page("http://editorial.rottentomatoes.com/guide/best-netflix-shows-and-movies-to-binge-watch-now/6/")
     reviews
     goodbye
-  end
-
-  def list_series
-    puts "The Best Netflix Original Series Right Now, Ranked"
-    puts <<-DOC
-    1. BoJack Horseman
-      6 seasons, 68 episodes | IMDb: 8.6/10
-    2. Stranger Things
-      3 seasons, 25 episodes | IMDb: 8.8/10
-    DOC
   end
 
   def reviews

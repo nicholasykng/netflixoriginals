@@ -1,3 +1,6 @@
+require "open-uri"
+require "nokogiri"
+require "pry"
 require_relative "./netflixoriginals/version"
 require_relative "./netflixoriginals/cli"
 require_relative "./netflixoriginals/series"

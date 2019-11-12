@@ -1,3 +1,15 @@
 class Netflixoriginals::Series
-  attr_accessor :name, :number_of_seasons, :rank, :number_of_episodes, :IMDB_rating, :review
+
+  attr_accessor :title, :year, :tomatometer, :rank, :synopsis, :starring
+
+  @@all = []
+
+  def initialize(movie_hash)
+    movie_hash.each {|attribute, value| self.send("#{attribute}=", value)}
+    @@all << self
+  end
+
+  def self.all
+    @@all
+  end
 end

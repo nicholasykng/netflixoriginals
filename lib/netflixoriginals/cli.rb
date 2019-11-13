@@ -14,7 +14,7 @@ class Netflixoriginals::CLI
 
   def start
     Netflixoriginals::Series.all.each do |series|
-      puts "#{series.rank}. #{series.title} #{series.year}"
+      puts "#{series.rank}. #{series.url}"
     end
   end
 

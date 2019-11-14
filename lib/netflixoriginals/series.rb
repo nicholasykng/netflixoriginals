@@ -22,4 +22,7 @@ end
     @@all
   end
 
+  def self.find(rank)
+    @@all[98-rank]
+  end
 end

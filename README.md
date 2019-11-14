@@ -1,9 +1,6 @@
-HELLO WORLD
 # Netflixoriginals
+Welcome. This gem will list the current top Netflix Original Movies by Rank, Title, Year Released, and Rotten Tomato Rating. Users can discover more information about the movie by typing in the movie's rank.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/netflixoriginals`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
@@ -23,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Run bin/netflixoriginals and follow the prompts. 
 
 ## Development
 

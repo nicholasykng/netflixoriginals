@@ -23,6 +23,6 @@ end
   end
 
   def self.find(rank)
-    @@all[98-rank]
+    @@all[self.all.size - rank]
   end
 end

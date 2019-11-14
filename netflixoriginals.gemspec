@@ -9,14 +9,14 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Nicholas Ng'"]
   spec.email         = ["'nicholasykng@gmail.com'"]
 
-  spec.summary       = "The Best Netflix Original Series Right Now, Ranked"
-  spec.description   = "It lists 55 Best Netflix Original Series Right Now as of November 4, 2019"
+  spec.summary       = "The Best Netflix Original Movie Right Now, Ranked According to Rotten Tomatoes."
+  spec.description   = "It ranks the Best Netflix Original Movie Right Now by Rotten Tomatoes"
   spec.homepage      = "https://github.com/nicholasykng/netflixoriginals"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
-  
+
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
   spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do

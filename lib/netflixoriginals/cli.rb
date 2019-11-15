@@ -5,11 +5,10 @@ class Netflixoriginals::CLI
     puts "Welcome to the List of Top Netflix Original Movies According to Rotten Tomatoes."
     puts ""
     puts ""
-    puts "The list is sorted from the left to right: Movie Rank, Movie Title, Year Movie was Released, and Tomatometer Score"
+    puts "It is listed by Rank and Netflix Original Movie Title."
     puts ""
     puts ""
     start
-    ending
   end
 
   def make_series
@@ -19,7 +18,7 @@ class Netflixoriginals::CLI
 
   def start
     Netflixoriginals::Series.all.each do |series|
-      puts "#{series.rank}. #{series.title} #{series.year} #{series.tomatometer}"
+      puts "#{series.rank}. #{series.title}"
     end
     puts ""
     puts ""
@@ -28,28 +27,33 @@ class Netflixoriginals::CLI
     puts ""
     input = gets.strip.to_i
       if input.between?(1, Netflixoriginals::Series.all.size) == true
-      movie = Netflixoriginals::Series.find(input)
-      puts "========================================================================================================================================="
-      puts "Rank: #{movie.rank}"
-      puts ""
-      puts ""
-      puts "Title: #{movie.title}"
-      puts ""
-      puts ""
-      puts "#{movie.synopsis}"
-      puts ""
-      puts ""
-      puts "#{movie.starring}"
-      puts ""
-      puts ""
-      puts "Rotten Tomatoes URL for this movie: #{movie.url}"
-      puts ""
-      puts ""
-      puts "You may use the above URL to dive deeper into the movie."
-      puts ""
-      puts ""
-    else
-      start
+        movie = Netflixoriginals::Series.find(input)
+        add_information = Netflixoriginals::Scraper.scrape_main_page(movie.url)
+        movie.add_information(add_information)
+        puts "========================================================================================================================================="
+        puts "Rank: #{movie.rank}"
+        puts ""
+        puts ""
+        puts "Title: #{movie.title}"
+        puts ""
+        puts ""
+        puts "Year Released: #{movie.year}"
+        puts ""
+        puts ""
+        puts "#{movie.starring}"
+        puts ""
+        puts ""
+        puts "Synopsis: #{movie.synopsis}"
+        puts ""
+        puts ""
+        puts "Critic Consensus: #{movie.critic_consensus}"
+        puts ""
+        puts ""
+        puts "Tomatometer Score: #{movie.tomatometer}"
+        puts ""
+        puts ""
+      else
+        start
     end
   puts "Would you like to view the list again? (Y/N)"
   input_1 = gets.strip
@@ -62,6 +66,7 @@ class Netflixoriginals::CLI
     start
   end
 end
+
   def goodbye
     puts ""
     puts ""
@@ -69,6 +74,5 @@ end
     puts ""
     puts ""
   end
-  def ending
-  end
+
 end

@@ -1,6 +1,6 @@
 class Netflixoriginals::Series
 
-  attr_accessor :title, :year, :tomatometer, :rank, :synopsis, :starring, :url
+  attr_accessor :title, :year, :tomatometer, :rank, :starring, :url, :synopsis, :critic_consensus
 
   @@all = []
 
@@ -15,9 +15,9 @@ class Netflixoriginals::Series
   def self.create_from_collection(series_array)
     series_array.each do |series_hash|
       Netflixoriginals::Series.new(series_hash)
-
+    end
   end
-end
+
   def self.all
     @@all
   end
@@ -25,4 +25,10 @@ end
   def self.find(rank)
     @@all[self.all.size - rank]
   end
+
+  def add_information(extra_info_hash)
+    extra_info_hash.each {|attribute, value| self.send("#{attribute}=", value)}
+    self
+  end
+  
 end

@@ -1,6 +1,5 @@
 # Netflixoriginals
-Welcome. This gem will list the current top Netflix Original Movies by Rank, Title, Year Released, and Rotten Tomato Rating. Users can discover more information about the movie by typing in the movie's rank.
-
+Welcome. This gem will list the current top Netflix Original Movies by Rank and Title. You will also be able to find out more information about a particular movie by typing in the rank number. There you will find: Year Movie was Released, Starring, Synopsis, Critic Consensus, and Tomatometer Score. 
 
 ## Installation
 
@@ -20,7 +19,7 @@ Or install it yourself as:
 
 ## Usage
 
-Run bin/netflixoriginals and follow the prompts. 
+Run bin/netflixoriginals and follow the prompts.
 
 ## Development
 

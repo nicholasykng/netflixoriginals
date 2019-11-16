@@ -22,7 +22,7 @@ class Netflixoriginals::CLI
     end
     puts ""
     puts ""
-    puts "To find out more information about a series please enter the corresponding rank number:"
+    puts "To find out more information about a Netflix Original Movie please enter the corresponding rank number:"
     puts ""
     puts ""
     input = gets.strip.to_i

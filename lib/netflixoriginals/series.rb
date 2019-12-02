@@ -30,5 +30,9 @@ class Netflixoriginals::Series
     extra_info_hash.each {|attribute, value| self.send("#{attribute}=", value)}
     self
   end
-  
+
+  def self.find_by_title(title)
+    self.all.select {|movie| movie.title.downcase == title.downcase}
+  end
+
 end

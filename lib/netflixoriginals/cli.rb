@@ -12,7 +12,7 @@ class Netflixoriginals::CLI
   end
 
   def make_series
-    series_array = Netflixoriginals::Scraper.scrape_index_page("https://editorial.rottentomatoes.com/guide/best-netflix-movies-to-watch-right-now/")
+    series_array = Netflixoriginals::Scraper.scrape_index_page("https://editorial.rottentomatoes.com/guide/best-netflix-movies-to-watch-right-now/3/")
     Netflixoriginals::Series.create_from_collection(series_array)
   end
 
